@@ -11,10 +11,12 @@ class Calculator {
       this.operation = undefined
     }
   
+    //Deletes the current operand, removing one character from the inputted value
     delete() {
       this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
   
+    // Only 1 decimal place to be used
     appendNumber(number) {
       if (number === '.' && this.currentOperand.includes('.')) return
       this.currentOperand = this.currentOperand.toString() + number.toString()
@@ -30,6 +32,7 @@ class Calculator {
       this.currentOperand = ''
     }
   
+    // code to do the maths
     compute() {
       let computation
       const prev = parseFloat(this.previousOperand)
@@ -73,6 +76,7 @@ class Calculator {
       }
     }
   
+    // Update the display with results
     updateDisplay() {
       this.currentOperandTextElement.innerText =
         this.getDisplayNumber(this.currentOperand)
